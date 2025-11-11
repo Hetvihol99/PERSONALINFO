@@ -1,2 +1,100 @@
-# PERSONALINFO
-all about hetvihol
+<!DOCTYPE html>
+ <html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Het Vihol</title>
+  
+  <style>
+    /* --- Basic Reset --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* --- Page Styling --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      background-image: url("https://cdn.sanity.io/images/599r6htc/regionalized/dc9777313e37457b88e3d090df073f32dc964020-1000x500.png?q=75&fit=max&auto=format&dpr=2");
+
+      color: rgb(0, 0, 0);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 150px 250px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.07);
+    }
+
+    button {
+      background: rgb(204, 140, 30);
+      color: #cc002c;
+      border: none;
+      padding: 10px 25px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #5563DE;
+      color: white;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      color:black
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Het Vihol</h1>
+    <h2>Welcome to My Personal Website</h2>
+    <p>Hello! I'm Het Vihol — a learner, creator, and explorer.  
+       I love technology, creativity, and continuous learning.</p>
+       <br>
+       <p>instagram:hetvihol</p>
+       <p>github:hetvihol99</p>
+       <p>location:Ahmedabad,gujrat</p>
+       <p>contact info : hetvihol8576@gmail.com</p>
+    <br>
+    <button>Know More</button>
+  </div>
+
+  <footer>© 2025 Het Vihol | All Rights Reserved</footer>
+</body>
+</html>
