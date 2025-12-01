@@ -1,101 +1,151 @@
 <!DOCTYPE html>
- <html lang="en">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Het Vihol</title>
-  
+
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
     /* --- Basic Reset --- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     /* --- Page Styling --- */
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #74ABE2, #5563DE);
-      background-image: url("C:\Users\Het Vihol\Downloads\340452.png");
+    html, body { height: 100%; }
 
-      color: rgb(0, 0, 0);
+    body {
+      font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      /* green -> black gradient */
+      background: linear-gradient(135deg, #0f9d58 0%, #06361e 40%, #000000 100%);
+      /* If you want an image overlay instead, uncomment the following and comment the gradient line above:
+         background-image: linear-gradient(135deg, rgba(15,157,88,0.45), rgba(0,0,0,0.6)), url('YOUR_IMAGE_URL_HERE');
+         background-size: cover; background-position: center;
+      */
+      color: #ffffff;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
+      padding: 2rem;
+      min-height: 100vh;
     }
 
+    /* container */
+    .card {
+      width: min(900px, 95%);
+      background: rgba(0,0,0,0.45);      /* translucent dark card for contrast */
+      border-radius: 16px;
+      padding: 2.25rem;
+      text-align: center;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      backdrop-filter: blur(6px);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 45px rgba(0,0,0,0.6); }
+
     h1 {
-      font-size: 3rem;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
-      margin-bottom: 10px;
+      font-size: clamp(1.8rem, 3.6vw, 2.8rem);
+      letter-spacing: 1px;
+      margin-bottom: .25rem;
+      font-weight: 700;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: clamp(1rem, 2.2vw, 1.25rem);
       font-weight: 400;
-      margin-bottom: 30px;
+      margin-bottom: 1rem;
+      opacity: 0.9;
     }
 
-    .card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 150px 250px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      transition: 0.3s;
+    p.lead {
+      color: rgba(255,255,255,0.92);
+      line-height: 1.5;
+      margin-bottom: 1rem;
     }
 
-    .card:hover {
-      transform: scale(1.07);
+    /* contact list */
+    .contacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: .5rem .75rem;
+      margin: 1rem 0 1.25rem;
+      justify-items: center;
     }
 
-    button {
-      background: rgb(204, 140, 30);
-      color: #cc002c;
+    .contacts a, .contacts p {
+      background: rgba(255,255,255,0.04);
+      padding: .55rem .8rem;
+      border-radius: 10px;
+      width: 100%;
+      text-decoration: none;
+      color: #e6f7ee;
+      font-size: .95rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .contacts a:hover {
+      background: rgba(255,255,255,0.08);
+      transform: translateY(-3px);
+    }
+
+    /* main CTA */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #1bd06a, #0fb56a);
+      color: #021a0f;
+      padding: .65rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
       border: none;
-      padding: 10px 25px;
-      font-size: 1rem;
-      border-radius: 30px;
       cursor: pointer;
-      transition: 0.3s;
+      text-decoration: none;
+      transition: transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 6px 18px rgba(15,80,45,0.28);
     }
 
-    button:hover {
-      background: #5563DE;
-      color: white;
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
-    }
+    .btn:active { transform: translateY(1px); }
+    .btn:hover { box-shadow: 0 12px 30px rgba(15,80,45,0.36); }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      opacity: 0.8;
-      color:black
+      margin-top: 1rem;
+      color: rgba(255,255,255,0.65);
+      font-size: .88rem;
+    }
+
+    /* small screens adjustments */
+    @media (max-width: 420px) {
+      .contacts { grid-template-columns: 1fr; }
+      .card { padding: 1.25rem; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Het Vihol</h1>
-    <h2>Welcome to My Personal Website</h2>
-    <p>Hello! I'm Het Vihol — a learner, creator, and explorer.  
-       I love technology, creativity, and continuous learning.</p>
-       <br>
-       <p>instagram:hetvihol</p>
-       <p>github:hetvihol99</p>
-      <p>linkedin:hetvihol</p>
-       <p>location:Ahmedabad,gujrat</p>
-       <p>contact info : hetvihol8576@gmail.com</p>
-    <br>
-    <button>Know More</button>
-  </div>
+  <main class="card" role="main" aria-labelledby="page-title">
+    <h1 id="page-title">Het Vihol</h1>
+    <h2>Welcome to my personal website</h2>
 
-  <footer>© 2025 Het Vihol | All Rights Reserved</footer>
+    <p class="lead">
+      Hello! I'm Het — a learner, creator, and explorer. I enjoy technology, creativity,
+      and continuous learning.
+    </p>
+
+    <div class="contacts" aria-label="Contact information">
+      <!-- Use real links where available -->
+      <a href="https://instagram.com/hetvihol" target="_blank" rel="noopener noreferrer">Instagram: hetvihol</a>
+      <a href="https://linkedin.com/in/hetvihol" target="_blank" rel="noopener noreferrer">LinkedIn: hetvihol</a>
+      <a href="https://github.com/hetvihol99" target="_blank" rel="noopener noreferrer">GitHub: hetvihol99</a>
+      <p title="Location">Location: Ahmedabad, Gujarat, India</p>
+    </div>
+
+    <p>
+      <a class="btn" href="mailto:hetvihol8576@gmail.com">Contact: hetvihol8576@gmail.com</a>
+    </p>
+
+    <footer>© 2025 Het Vihol | All Rights Reserved</footer>
+  </main>
 </body>
 </html>
