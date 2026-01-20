@@ -5,23 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Het Vihol</title>
 
- 
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-   
     * {
       margin: 0; padding: 0; box-sizing: border-box;
     }
 
-  
-    html, body { height: 100%; }
+    html, body { height: 100%; overflow: hidden; }
 
     body {
       font-family: 'Poppins', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      
+     
       background: linear-gradient(135deg, #0f9d58 0%, #06361e 40%, #000000 100%);
-      
       color: #ffffff;
       display: flex;
       align-items: center;
@@ -30,8 +26,19 @@
       min-height: 100vh;
     }
 
-    
+    /* Laser Effect Container stays fixed in the back */
+    #unicorn-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0; /* Behind the card but above the body gradient */
+      pointer-events: none;
+    }
+
     .card {
+      position: relative;
       width: min(900px, 95%);
       background: rgba(0,0,0,0.45);     
       border-radius: 16px;
@@ -39,10 +46,8 @@
       text-align: center;
       box-shadow: 0 8px 30px rgba(0,0,0,0.6);
       backdrop-filter: blur(6px);
-      
+      z-index: 10;
     }
-
-    
 
     h1 {
       font-size: clamp(1.8rem, 3.6vw, 2.8rem);
@@ -63,6 +68,7 @@
       line-height: 1.5;
       margin-bottom: 1rem;
     }
+    
 
     
     .contacts {
@@ -84,6 +90,7 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      transition: transform 0.2s ease;
     }
 
     .contacts a:hover {
@@ -91,7 +98,7 @@
       transform: translateY(-3px);
     }
 
-    
+    /* Restoring your original Green Button */
     .btn {
       display: inline-block;
       background: linear-gradient(90deg, #1bd06a, #0fb56a);
@@ -115,7 +122,6 @@
       font-size: .88rem;
     }
 
-   
     @media (max-width: 420px) {
       .contacts { grid-template-columns: 1fr; }
       .card { padding: 1.25rem; }
@@ -123,8 +129,11 @@
   </style>
 </head>
 <body>
-  <main class="card" role="main" aria-labelledby="page-title">
-    <h1 id="page-title">Het Vihol</h1>
+
+  <div id="unicorn-bg" data-us-project="x7gTHsLIdgYgSAQ3gSsf"></div>
+
+  <main class="card">
+    <h1>Het Vihol</h1>
     <h2>Welcome to my personal website</h2>
 
     <p class="lead">
@@ -132,12 +141,11 @@
       and continuous learning.
     </p>
 
-    <div class="contacts" aria-label="Contact information">
-      
-      <a href="https://instagram.com/hetvihol" target="_blank" rel="noopener noreferrer">Instagram: hetvihol</a>
-      <a href="http://www.linkedin.com/in/het-vihol-28401a379" target="_blank" rel="noopener noreferrer">LinkedIn: hetvihol</a>
-      <a href="https://github.com/hetvihol99" target="_blank" rel="noopener noreferrer">GitHub: hetvihol99</a>
-      <p title="Location">Location: Ahmedabad, Gujarat, India</p>
+    <div class="contacts">
+      <a href="https://instagram.com/hetvihol" target="_blank">Instagram: hetvihol</a>
+      <a href="http://www.linkedin.com/in/het-vihol-28401a379" target="_blank">LinkedIn: hetvihol</a>
+      <a href="https://github.com/hetvihol99" target="_blank">GitHub: hetvihol99</a>
+      <p>Location: Ahmedabad, Gujarat, India</p>
     </div>
 
     <p>
@@ -146,5 +154,19 @@
 
     <footer>© 2026 Het Vihol | All Rights Reserved</footer>
   </main>
+
+  <script type="text/javascript">
+    (function(){
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.0.2/dist/unicornStudio.umd.js";
+      s.onload = function(){
+        if(window.UnicornStudio) {
+          UnicornStudio.init();
+        }
+      };
+      document.body.appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>
